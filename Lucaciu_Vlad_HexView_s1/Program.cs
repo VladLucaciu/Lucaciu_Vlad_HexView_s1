@@ -1,74 +1,52 @@
 ﻿using System;
 using System.IO;
 
-public class HexadecimalViewer
-// https://www.exercisescsharp.com/binary-files/hexadecimal-viewer/
+namespace Lucaciu_Vlad_HexView_s1
 {
-    public static void Main(string[] args)
+    class Program
+    // https://www.exercisescsharp.com/binary-files/hexadecimal-viewer/ ; 
     {
-        const int SIZE_BUFFER = 16;
-
-        string fileName = "app.exe";
-
-        using (FileStream file = File.OpenRead(fileName))
+        static void Main(string[] args)
         {
-            byte[] data = new byte[SIZE_BUFFER];
-
-            int amount;
-            int c = 0;
-            string line = string.Empty;
-
-            do
+            string location = @"C:\Users\irimi\source\repos\Lucaciu_Vlad_HexView_s1\Lucaciu_Vlad_HexView_s1";
+            using (FileStream file = File.OpenRead(location))
             {
-                Console.Write(ToHex(file.Position, 8));
-                Console.Write("  ");
-
-                amount = file.Read(data, 0, SIZE_BUFFER);
-
-                for (int i = 0; i < amount; i++)
+                byte[] data = new byte[16];
+                int amount;
+                do
                 {
-                    Console.Write(ToHex(data[i], 2) + " ");
+                    string line = string.Empty;
+                    Console.WriteLine(hex(file.Position, 8) + ": ");
+                    amount = file.Read(data, 0, 16);
 
-                    if (data[i] < 32)
+                    line += "| ";
+                    for (int i = 0; i < amount; i++)
                     {
-                        line += ".";
+                        Console.Write(hex(data[i], 2) + " ");
+                        if (data[i] < 32)
+
+                            line += ".";
+                        else
+                            line += (char)data[i];
                     }
-                    else
+                    if (amount < 16)
                     {
-                        line += (char)data[i];
+
+                        for (int i = amount; i < 16; i++)
+                            Console.Write("   ");
                     }
-                }
 
-
-                if (amount < SIZE_BUFFER)
-                {
-                    for (int i = amount; i < SIZE_BUFFER; i++)
-                    {
-                        Console.Write("   ");
-                    }
-                }
-
-                Console.WriteLine(line);
-                line = "";
-
-                c++;
-                if (c == 24)
-                {
-                    Console.ReadLine();
-                    c = 0;
-                }
+                    Console.WriteLine(line);
+                } while (amount == 16);
             }
-            while (amount == SIZE_BUFFER);
         }
-    }
 
-    public static string ToHex(long n, int digits)
-    {
-        string hex = Convert.ToString(n, 16);
-        while (hex.Length < digits)
+        private static string hex(long position, int nr)
         {
-            hex = "0" + hex;
+            string hex = Convert.ToString(position, 16);
+            while (hex.Length < nr)
+                hex = "0" + hex;
+            return hex;
         }
-        return hex;
     }
 }
