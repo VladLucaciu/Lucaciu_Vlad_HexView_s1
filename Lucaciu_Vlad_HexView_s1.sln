@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucaciu_Vlad_HexView_s1", "Lucaciu_Vlad_HexView_s1\Lucaciu_Vlad_HexView_s1.csproj", "{D66AB3C1-FA0A-439C-8145-674C819301CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D66AB3C1-FA0A-439C-8145-674C819301CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66AB3C1-FA0A-439C-8145-674C819301CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66AB3C1-FA0A-439C-8145-674C819301CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66AB3C1-FA0A-439C-8145-674C819301CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59E40A4C-0180-48CE-BB5A-AE21EBB3C6BB}
+	EndGlobalSection
+EndGlobal
